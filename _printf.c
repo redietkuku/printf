@@ -14,6 +14,11 @@ int _printf(const char *format, ...)
 	char *str;
 	char ch;
 
+	if (format == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	va_start(args, format);
 	for (x = 0; format[x]; x++)
 	{
