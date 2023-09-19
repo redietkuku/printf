@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					ch = (char) va_arg(args, int);
-					write(1, &c, 1);
+					write(1, &ch, 1);
 					count_char++;
 					x++;
 					break;
@@ -54,7 +54,6 @@ int _printf(const char *format, ...)
 			count_char++;
 		}
 	}
-}
 	va_end(args);
 	return (count_char);
-
+}
