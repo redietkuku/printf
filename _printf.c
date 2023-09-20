@@ -13,12 +13,16 @@ int _printf(const char *format, ...)
 	int x;
 	char *str;
 	char ch;
-
+	
 	if (format == NULL)
+	{
 		return (0);
+	}
 	va_start(args, format);
 	for (x = 0; format[x]; x++)
+	{
 		if (format[x] == '%')
+		{
 			switch (format[x + 1])
 			{
 				case 'c':
@@ -30,7 +34,9 @@ int _printf(const char *format, ...)
 				case 's':
 					str = va_arg(args, char *);
 					if (str == NULL)
-						str = ("null");
+					{
+						str = "(null)";
+					}
 					while (*str)
 					{
 						write(1, str, 1);
@@ -52,11 +58,13 @@ int _printf(const char *format, ...)
 					count_char++;
 					break;
 			}
+		}
 		else
 		{
 			write(1, &format[x], 1);
 			count_char++;
 		}
+	}
 	va_end(args);
 	return (count_char);
 }
